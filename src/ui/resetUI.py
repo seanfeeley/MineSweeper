@@ -1,13 +1,20 @@
 import sys
-from PySide2.QtWidgets import (QFrame, QVBoxLayout)
+from PySide2.QtWidgets import (QPushButton, QVBoxLayout)
+from PySide2.QtGui import (QIcon)
+from PySide2.QtCore import (SIGNAL, QObject, QSize)
+
+LOST = 1
+WON = 2
+PRESSED = 3
+PLAYING = 4
 
 
-class ResetFrame(QFrame):
+class ResetButton(QPushButton):
 
     def __init__(self, parent=None):
-        super(ResetFrame, self).__init__(parent)
-        self.load_layout()
+        super(ResetButton, self).__init__(parent)
+        self.setStatePlaying()
 
-    def load_layout(self):
-        self.main_layout = QVBoxLayout()
-        self.setLayout(self.main_layout)
+    def setStatePlaying(self):
+        self.setIcon(QIcon('images/smile.png'))
+        self.setIconSize(QSize(50, 50))

@@ -1,13 +1,8 @@
 import sys
-from PySide2.QtWidgets import (QFrame, QVBoxLayout)
+from src.ui.NumberDisplayUI import NumberDisplay
 
 
-class TimerFrame(QFrame):
+class TimerFrame(NumberDisplay):
 
     def __init__(self, parent=None):
         super(TimerFrame, self).__init__(parent)
-        self.load_layout()
-
-    def load_layout(self):
-        self.main_layout = QVBoxLayout()
-        self.setLayout(self.main_layout)

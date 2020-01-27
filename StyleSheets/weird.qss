@@ -1651,3 +1651,21 @@ QPushButton:pressed
     background-color: qlineargradient(x1: 0.5, y1: 0.5 x2: 0.5, y2: 1, stop: 0 #bedfec, stop: 0.5 #b9dae7);
     color: #31363B;
 }
+
+
+
+
+GridFrame{
+  padding: 0px;
+  margin: 0px;
+}
+
+MainPanel{
+  padding: 0px;
+  margin: 0px;
+}
+
+TileButton{
+  padding: 0px;
+  margin: 0px;
+}
