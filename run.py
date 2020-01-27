@@ -5,7 +5,7 @@ from PySide2.QtWidgets import (QApplication)
 from PySide2.QtCore import (QFile, QTextStream)
 import StyleSheets
 
-SETTINGS = "custom"  # custom/easy/normal/hard
+SETTINGS = "easy"  # custom/easy/normal/hard
 
 
 def load_settings():
