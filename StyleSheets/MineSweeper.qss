@@ -24,6 +24,7 @@ TileButton{
   background-color: #EFF0F1;
   font-size: 18px;
 }
+
 TileButton:Hover{
 
   margin: 0px;
@@ -62,7 +63,15 @@ TileButton#Flagged{
 }
 
 TileButton#Mine{
-  /* background-image: url(:/assets/mine.svg); */
+
+  width: 20px;
+  height: 20px;
+  margin: 0px;
+  border-radius: 0px;
+  border-width: 2px;
+  border-color: #BAB9B8;
+  background-color: #EFF0F1;
+  font-size: 18px;
 
 }
 
@@ -138,11 +147,11 @@ ResetButton:Pressed{
   border-right-color: white;
   border-bottom-color: white;
 }
-ScoreFrame{
+NumberDisplay{
   padding: 0px;
   margin: 0px;
-}
-TimerFrame{
-  padding: 0px;
-  margin: 0px;
+  border-width: 0px;
+  border-radius: 3px;
+  color: #EB3323;
+  background-color: #1D0604;
 }
