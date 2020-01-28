@@ -60,11 +60,11 @@ class MainPanel(QFrame):
     def tile_pressed(self):
         self.reset_button.set_state(resetUI.PRESSED)
 
-    def set_game_normal(self):
+    def set_game_status_normal(self):
         self.reset_button.set_state(resetUI.DEFAULT)
 
-    def set_game_lost(self):
+    def set_game_status_lost(self):
         self.reset_button.set_state(resetUI.LOST)
 
-    def set_game_won(self):
+    def set_game_status_won(self):
         self.reset_button.set_state(resetUI.WON)

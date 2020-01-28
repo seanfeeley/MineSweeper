@@ -24,6 +24,7 @@ TileButton{
   background-color: #EFF0F1;
   font-size: 18px;
 }
+
 TileButton:Hover{
 
   margin: 0px;
@@ -62,7 +63,15 @@ TileButton#Flagged{
 }
 
 TileButton#Mine{
-  /* background-image: url(:/assets/mine.svg); */
+
+  width: 20px;
+  height: 20px;
+  margin: 0px;
+  border-radius: 0px;
+  border-width: 2px;
+  border-color: #BAB9B8;
+  background-color: #EFF0F1;
+  font-size: 18px;
 
 }
 

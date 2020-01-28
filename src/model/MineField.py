@@ -47,7 +47,7 @@ def increase_hint(row_index, column_index, minefield):
     return minefield
 
 
-def get_attached_non_mines(non_mines, minefield):
+def get_blank_area(non_mines, minefield):
     row_index = non_mines[-1][0]
     column_index = non_mines[-1][1]
     attached_coords = get_attached_coords(row_index,
@@ -55,11 +55,14 @@ def get_attached_non_mines(non_mines, minefield):
                                           minefield)
     for coord in attached_coords:
         if coord not in non_mines:
-            is_not_mine = minefield[coord[0]][coord[1]] != states.MINE
+            coord_status = minefield[coord[0]][coord[1]]
+            is_not_mine = coord_status != states.MINE
+            is_blank = coord_status == states.BLANK
             if is_not_mine:
                 non_mines.append(coord)
-                non_mines = get_attached_non_mines(non_mines,
-                                                   minefield)
+            if is_blank:
+                non_mines = get_blank_area(non_mines,
+                                           minefield)
 
     return non_mines
 

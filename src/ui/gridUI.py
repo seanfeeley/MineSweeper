@@ -14,6 +14,7 @@ class GridFrame(QFrame):
         self.tiles = []
         self.load_layout()
         self.load_minefeild()
+        self.is_game_over = False
 
     def load_minefeild(self):
         self.minefield = MineField.generate_minefield(self.settings['rows'],
@@ -56,6 +57,7 @@ class GridFrame(QFrame):
         return tile
 
     def reset(self):
+        self.is_game_over = False
         self.load_minefeild()
         self.set_all_tiles_hidden()
 
@@ -66,43 +68,50 @@ class GridFrame(QFrame):
                 tile.set_state(states.HIDDEN)
                 tile.setEnabled(True)
 
+    def end_game(self):
+        for row_index in range(0, len(self.tiles)):
+            for column_index in range(0, len(self.tiles[row_index])):
+                tile = self.tiles[row_index][column_index]
+                true_state = self.minefield[row_index][column_index]
+                if (true_state == states.MINE
+                  and tile.state != states.DETONATED):
+                   tile.set_state(states.MINE)
+                elif tile.state == states.HIDDEN:
+                    tile.setEnabled(False)
+
     def disable_all_tiles(self):
         for row_index in range(0, len(self.tiles)):
             for column_index in range(0, len(self.tiles[row_index])):
                 tile = self.tiles[row_index][column_index]
+
                 tile.setEnabled(False)
 
     def tile_clicked(self, row_index, column_index):
         tile = self.tiles[row_index][column_index]
         tile_state = self.minefield[row_index][column_index]
-        if tile_state == states.MINE:
-            self.parent().parent().set_game_lost()
-            self.disable_all_tiles()
-        else:
-            self.parent().parent().set_game_normal()
-            tile.set_state(tile_state)
-            if tile_state == states.BLANK:
-                self.reveal_attached_blanks(row_index, column_index)
-            self.check_if_game_won()
+        if not self.is_game_over:
+            if tile_state == states.MINE:
+                tile.set_state(states.DETONATED)
+                self.end_game()
+                self.parent().parent().set_game_status_lost()
+            else:
+                self.parent().parent().set_game_status_normal()
+                tile.set_state(tile_state)
+                if tile_state == states.BLANK:
+                    self.reveal_attached_blanks(row_index, column_index)
 
     def tile_pressed(self, row_index, column_index):
         tile = self.tiles[row_index][column_index]
-        # tile_state = self.minefield[row_index][column_index]
         if tile.state == states.HIDDEN:
             self.parent().parent().tile_pressed()
 
-    def reveal_mines(self):
-        pass
 
     def reveal_attached_blanks(self, row_index, column_index):
-        non_mines = MineField.get_attached_non_mines([[row_index,
-                                                       column_index]],
-                                                     self.minefield)
+        non_mines = MineField.get_blank_area([[row_index,
+                                               column_index]],
+                                               self.minefield)
         for non_mine in non_mines:
             row_index = non_mine[0]
             column_index = non_mine[1]
             tile = self.tiles[row_index][column_index]
             tile.set_state(self.minefield[row_index][column_index])
-
-    def check_if_game_won(self):
-        pass

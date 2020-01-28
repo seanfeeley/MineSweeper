@@ -19,6 +19,8 @@ class TileButton(QPushButton):
         self.reset_button()
         if self.state == states.MINE:
             self.show_mine()
+        elif self.state == states.DETONATED:
+            self.show_detonated()
         elif self.state == states.FLAGGED:
             self.show_flagged()
         elif self.state == states.HIDDEN:
@@ -39,8 +41,11 @@ class TileButton(QPushButton):
         self.setText('')
 
     def show_mine(self):
-        self.setObjectName("Mine")
         self.setIcon(QIcon('images/mine.png'))
+        self.setIconSize(QSize(20, 20))
+
+    def show_detonated(self):
+        self.setIcon(QIcon('images/detonatedMine.png'))
         self.setIconSize(QSize(20, 20))
 
     def show_flagged(self):

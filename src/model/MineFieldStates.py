@@ -1,3 +1,4 @@
+DETONATED = -4
 MINE = -3
 FLAGGED = -2
 HIDDEN = -1
