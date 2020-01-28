@@ -7,15 +7,14 @@ class NumberDisplay(QLCDNumber):
 
     def __init__(self, parent=None):
         super(NumberDisplay, self).__init__(parent)
-        self.reset()
+        self.value = 0
         self.setSegmentStyle(QLCDNumber.Flat)
+        self.setDigitCount(3)
+        self.refresh_display()
 
     def reset(self):
-        import random
-        self.score = 0
-        self.reset_display()
+        self.value = 0
+        self.refresh_display()
 
-    def reset_display(self):
-        self.display("%03d" % self.score)
-        self.setDigitCount(3)
-        self.repaint()
+    def refresh_display(self):
+        self.display("%03d" % self.value)

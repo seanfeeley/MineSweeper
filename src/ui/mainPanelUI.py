@@ -25,16 +25,14 @@ class MainPanel(QFrame):
         self.top_layout.setMargin(0)
         self.top_layout.setContentsMargins(0, 0, 0, 0)
         self.top_widget.setLayout(self.top_layout)
-        self.score_widget = ScoreFrame()
+        self.score_widget = ScoreFrame(self.settings['mines'])
         self.top_layout.addWidget(self.score_widget)
         self.top_layout.addStretch()
-
 
         self.reset_button = resetUI.ResetButton()
         self.reset_button.clicked.connect(self.reset_game)
         self.top_layout.addWidget(self.reset_button)
         self.top_layout.addStretch()
-
 
         self.timer_widget = TimerFrame()
         self.top_layout.addWidget(self.timer_widget)

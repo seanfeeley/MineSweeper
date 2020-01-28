@@ -56,9 +56,9 @@ def get_blank_area(non_mines, minefield):
     for coord in attached_coords:
         if coord not in non_mines:
             coord_status = minefield[coord[0]][coord[1]]
-            is_not_mine = coord_status != states.MINE
+            is_hint = coord_status >= states.HINT1
             is_blank = coord_status == states.BLANK
-            if is_not_mine:
+            if is_blank or is_hint:
                 non_mines.append(coord)
             if is_blank:
                 non_mines = get_blank_area(non_mines,

@@ -1,7 +1,7 @@
 import sys
 from PySide2.QtWidgets import (QPushButton)
-from PySide2.QtCore import (QSize)
-from PySide2.QtGui import (QIcon)
+from PySide2.QtCore import (QSize, Qt)
+from PySide2.QtGui import (QIcon, QMouseEvent)
 import src.model.MineFieldStates as states
 import random
 
@@ -62,3 +62,14 @@ class TileButton(QPushButton):
     def show_hint(self, state):
         self.setObjectName("Hint%d" % state)
         self.setText(str(state))
+
+    def mousePressEvent(self, QMouseEvent):
+        super(TileButton, self).mousePressEvent(QMouseEvent)
+        button = QMouseEvent.button()
+        if button == Qt.RightButton:
+            if self.state == states.FLAGGED:
+                self.set_state(states.HIDDEN)
+                self.parent().parent().parent().parent().score_widget.add_flag()
+            elif self.state == states.HIDDEN:
+                self.set_state(states.FLAGGED)
+                self.parent().parent().parent().parent().score_widget.remove_flag()

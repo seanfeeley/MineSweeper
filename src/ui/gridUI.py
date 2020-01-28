@@ -21,7 +21,6 @@ class GridFrame(QFrame):
                                                       self.settings['columns'],
                                                       self.settings['mines'])
 
-
     def load_layout(self):
         self.main_layout = QVBoxLayout()
         self.main_layout.setSpacing(0)
@@ -49,50 +48,43 @@ class GridFrame(QFrame):
         self.main_layout.addWidget(row_widget)
 
     def make_tile(self, row_index, column_index):
-        tile = tileUI.TileButton(row_index, column_index)
+        tile = tileUI.TileButton(row_index, column_index, parent=self)
         tile.clicked.connect(lambda: self.tile_clicked(row_index,
                                                        column_index))
-        tile.pressed.connect(lambda: self.tile_pressed(row_index,
-                                                       column_index))
+        # tile.pressed.connect(lambda: self.tile_pressed(row_index,
+        #                                                column_index))
         return tile
 
     def reset(self):
         self.is_game_over = False
         self.load_minefeild()
-        self.set_all_tiles_hidden()
+        self.run_function_on_all_tiles(self.reset_game_for_tile)
 
-    def set_all_tiles_hidden(self):
+    def run_function_on_all_tiles(self, function):
         for row_index in range(0, len(self.tiles)):
             for column_index in range(0, len(self.tiles[row_index])):
-                tile = self.tiles[row_index][column_index]
-                tile.set_state(states.HIDDEN)
-                tile.setEnabled(True)
+                function(row_index, column_index)
 
-    def end_game(self):
-        for row_index in range(0, len(self.tiles)):
-            for column_index in range(0, len(self.tiles[row_index])):
-                tile = self.tiles[row_index][column_index]
-                true_state = self.minefield[row_index][column_index]
-                if (true_state == states.MINE
-                  and tile.state != states.DETONATED):
-                   tile.set_state(states.MINE)
-                elif tile.state == states.HIDDEN:
-                    tile.setEnabled(False)
+    def reset_game_for_tile(self, row_index, column_index):
+        tile = self.tiles[row_index][column_index]
+        tile.set_state(states.HIDDEN)
+        tile.setEnabled(True)
 
-    def disable_all_tiles(self):
-        for row_index in range(0, len(self.tiles)):
-            for column_index in range(0, len(self.tiles[row_index])):
-                tile = self.tiles[row_index][column_index]
-
-                tile.setEnabled(False)
+    def end_game_for_tile(self, row_index, column_index):
+        tile = self.tiles[row_index][column_index]
+        true_state = self.minefield[row_index][column_index]
+        if (true_state == states.MINE and tile.state != states.DETONATED):
+            tile.set_state(states.MINE)
+        elif tile.state == states.HIDDEN:
+            tile.setEnabled(False)
 
     def tile_clicked(self, row_index, column_index):
         tile = self.tiles[row_index][column_index]
         tile_state = self.minefield[row_index][column_index]
-        if not self.is_game_over:
+        if not self.is_game_over and tile.state != states.FLAGGED:
             if tile_state == states.MINE:
                 tile.set_state(states.DETONATED)
-                self.end_game()
+                self.run_function_on_all_tiles(self.end_game_for_tile)
                 self.parent().parent().set_game_status_lost()
             else:
                 self.parent().parent().set_game_status_normal()
@@ -100,18 +92,13 @@ class GridFrame(QFrame):
                 if tile_state == states.BLANK:
                     self.reveal_attached_blanks(row_index, column_index)
 
-    def tile_pressed(self, row_index, column_index):
-        tile = self.tiles[row_index][column_index]
-        if tile.state == states.HIDDEN:
-            self.parent().parent().tile_pressed()
-
-
     def reveal_attached_blanks(self, row_index, column_index):
-        non_mines = MineField.get_blank_area([[row_index,
+        blank_mines = MineField.get_blank_area([[row_index,
                                                column_index]],
                                                self.minefield)
-        for non_mine in non_mines:
-            row_index = non_mine[0]
-            column_index = non_mine[1]
+        for blank_mine in blank_mines:
+            row_index = blank_mine[0]
+            column_index = blank_mine[1]
             tile = self.tiles[row_index][column_index]
-            tile.set_state(self.minefield[row_index][column_index])
+            if tile.state != states.FLAGGED:
+                tile.set_state(self.minefield[row_index][column_index])
