@@ -25,6 +25,7 @@ TileButton{
   font-size: 18px;
 }
 
+
 TileButton:Hover{
 
   margin: 0px;
@@ -36,6 +37,15 @@ TileButton:Hover{
 
 TileButton#Hidden{
   border-width: 2px;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: #777777;
+  border-bottom-color: #777777;
+}
+TileButton#Hidden:disabled{
+  border-width: 2px;
+  width: 10px;
+  height: 20px;
   border-top-color: white;
   border-left-color: white;
   border-right-color: #777777;
@@ -64,7 +74,7 @@ TileButton#Flagged{
 
 TileButton#Mine{
 
-  width: 20px;
+  width: 10px;
   height: 20px;
   margin: 0px;
   border-radius: 0px;

@@ -30,7 +30,6 @@ class MainPanel(QFrame):
         self.top_layout.addStretch()
 
         self.reset_button = resetUI.ResetButton()
-        self.reset_button.clicked.connect(self.reset_game)
         self.top_layout.addWidget(self.reset_button)
         self.top_layout.addStretch()
 
@@ -48,21 +47,3 @@ class MainPanel(QFrame):
 
         self.main_layout.addWidget(self.top_widget)
         self.main_layout.addWidget(self.bottom_widget)
-
-    def reset_game(self):
-        self.timer_widget.reset()
-        self.score_widget.reset()
-        self.grid_widget.reset()
-        self.reset_button.reset()
-
-    def tile_pressed(self):
-        self.reset_button.set_state(resetUI.PRESSED)
-
-    def set_game_status_normal(self):
-        self.reset_button.set_state(resetUI.DEFAULT)
-
-    def set_game_status_lost(self):
-        self.reset_button.set_state(resetUI.LOST)
-
-    def set_game_status_won(self):
-        self.reset_button.set_state(resetUI.WON)

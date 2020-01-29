@@ -1,4 +1,4 @@
-import src.model.MineFieldStates as states
+import src.model.GameStates as states
 import random
 
 
