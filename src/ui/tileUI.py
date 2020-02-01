@@ -9,6 +9,9 @@ import random
 
 class TileButton(QPushButton):
 
+    tileWidth = 40
+    iconWidth = 30
+
     def __init__(self, row, column, true_state, parent=None):
         super(TileButton, self).__init__(parent)
         self.game_state = gsc.GameStateController()
@@ -17,6 +20,9 @@ class TileButton(QPushButton):
         self.column = column
         self.set_state(states.HIDDEN)
         self.set_true_state(true_state)
+        size = QSize(self.tileWidth, self.tileWidth)
+        self.setMinimumSize(size)
+        self.setMaximumSize(size)
 
     def set_true_state(self, true_state):
         self.true_state = true_state
@@ -57,27 +63,27 @@ class TileButton(QPushButton):
     def show_mine(self):
         self.setObjectName("Mine")
         self.setIcon(QIcon('images/mine.png'))
-        self.setIconSize(QSize(20, 20))
+        self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_detonated(self):
         self.setObjectName("Mine")
         self.setIcon(QIcon('images/detonatedMine.png'))
-        self.setIconSize(QSize(20, 20))
+        self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_flagged(self):
         self.setObjectName("Flagged")
         self.setIcon(QIcon('images/flag.png'))
-        self.setIconSize(QSize(20, 20))
+        self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_hidden(self):
         self.setObjectName("Hidden")
         self.setIcon(QIcon())
-        self.setIconSize(QSize(20, 20))
+        self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_blank(self):
         self.setObjectName("Blank")
         self.setIcon(QIcon())
-        self.setIconSize(QSize(20, 20))
+        self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_hint(self, state):
         self.setObjectName("Hint%d" % state)

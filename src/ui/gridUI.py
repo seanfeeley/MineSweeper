@@ -62,7 +62,6 @@ class GridFrame(QFrame):
     def reset(self):
         self.load_minefeild()
 
-
     def check_for_win_state(self):
         self.game_state.set_game_normal.emit()
 
