@@ -5,6 +5,9 @@ from PySide2.QtWidgets import (QLCDNumber, QVBoxLayout)
 
 class NumberDisplay(QLCDNumber):
 
+    FORMAT = "%03d"
+    MAX_VALUE = 999
+
     def __init__(self, parent=None):
         super(NumberDisplay, self).__init__(parent)
         self.value = 0
@@ -17,4 +20,4 @@ class NumberDisplay(QLCDNumber):
         self.refresh_display()
 
     def refresh_display(self):
-        self.display("%03d" % self.value)
+        self.display(self.FORMAT % self.value)

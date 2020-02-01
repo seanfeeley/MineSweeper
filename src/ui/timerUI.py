@@ -21,12 +21,19 @@ class TimerFrame(NumberDisplay):
         self.timer.timeout.connect(self.one_second_passed)
 
     def restart_timer(self):
-        self.value = 0
+        self.value = 990
         self.timer.start(self.ONE_SECOND)
 
     def one_second_passed(self):
-        self.value += 1
+        self.increment_timer()
         self.refresh_display()
+
+    def increment_timer(self):
+        if self.value == self.MAX_VALUE:
+            self.game_state.set_game_lost.emit()
+        else:
+            self.value += 1
+
 
     def pause_timer(self):
         self.timer.stop()
