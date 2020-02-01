@@ -5,6 +5,7 @@ from PySide2.QtCore import (QSize)
 import src.model.GameStates as states
 import src.model.GameStateController as gsc
 
+
 class ResetButton(QPushButton):
 
     def __init__(self, parent=None):
@@ -15,11 +16,12 @@ class ResetButton(QPushButton):
         self.game_state.set_game_won.connect(self.game_won)
         self.game_state.set_game_reset.connect(self.game_reset)
         self.game_state.set_game_wait.connect(self.game_wait)
+        self.game_state.set_game_not_waiting.connect(self.game_not_waiting)
         self.game_state.set_game_normal.connect(self.game_normal)
 
-    def mouseClickEvent(self, QMouseEvent):
-        super(ResetButton, self).mouseClickEvent(QMouseEvent)
-        self.game_reset.emit()
+    def mouseReleaseEvent(self, QMouseEvent):
+        super(ResetButton, self).mouseReleaseEvent(QMouseEvent)
+        self.game_state.set_game_reset.emit()
 
     def game_lost(self):
         self.game_state.game_over = True
@@ -34,6 +36,10 @@ class ResetButton(QPushButton):
 
     def game_wait(self):
         self.set_state(states.WAIT)
+
+    def game_not_waiting(self):
+        if self.state == states.WAIT:
+            self.set_state(states.NORMAL)
 
     def game_normal(self):
         self.set_state(states.NORMAL)

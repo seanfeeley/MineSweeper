@@ -20,6 +20,7 @@ class GameStateController(QObject):
     set_game_won = Signal()
     set_game_reset = Signal()
     set_game_wait = Signal()
+    set_game_not_waiting = Signal()
     set_game_normal = Signal()
     check_for_game_won = Signal()
     reveal_blanks = Signal(int, int)

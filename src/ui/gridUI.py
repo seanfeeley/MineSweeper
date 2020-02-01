@@ -1,7 +1,7 @@
 import sys
 from PySide2.QtWidgets import (QFrame, QHBoxLayout, QVBoxLayout, QPushButton)
 import src.model.GameStates as states
-import src.model.MineFieldFunctions as MineField
+import src.model.MineFieldFunctions as mff
 import src.ui.tileUI as tileUI
 import random
 import src.model.GameStateController as gsc
@@ -21,11 +21,10 @@ class GridFrame(QFrame):
         self.load_minefeild()
         self.load_layout()
 
-
     def load_minefeild(self):
-        self.minefield = MineField.generate_minefield(self.settings['rows'],
-                                                      self.settings['columns'],
-                                                      self.settings['mines'])
+        self.minefield = mff.generate_minefield(self.settings['rows'],
+                                                self.settings['columns'],
+                                                self.settings['mines'])
 
     def load_layout(self):
         self.main_layout = QVBoxLayout()
@@ -61,12 +60,30 @@ class GridFrame(QFrame):
 
     def reset(self):
         self.load_minefeild()
+        self.reset_buttons()
+
+    def reset_buttons(self):
+        for tile_row in self.tiles:
+            for tile in tile_row:
+                tile.reset(self.minefield[tile.row][tile.column])
 
     def check_for_win_state(self):
-        self.game_state.set_game_normal.emit()
+        if self.is_game_won():
+            self.game_state.set_game_won.emit()
+        elif not self.game_state.game_over:
+            self.game_state.set_game_normal.emit()
+
+    def is_game_won(self):
+        win_state = True
+        for tile_row in self.tiles:
+            for tile in tile_row:
+                tile_in_win_state = tile.is_in_win_state()
+                win_state = tile_in_win_state and win_state
+
+        return win_state
 
     def reveal_blanks(self, row_index, column_index):
-        blank_mines = MineField.get_blank_area([[row_index,
+        blank_mines = mff.get_blank_area([[row_index,
                                                column_index]],
                                                self.minefield)
         for blank_mine in blank_mines:
