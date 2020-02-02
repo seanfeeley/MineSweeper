@@ -25,8 +25,14 @@ class TimerFrame(NumberDisplay):
         self.timer.start(self.ONE_SECOND)
 
     def one_second_passed(self):
-        self.value += 1
+        self.increment_timer()
         self.refresh_display()
+
+    def increment_timer(self):
+        if self.value == self.MAX_VALUE:
+            self.game_state.set_game_lost.emit()
+        else:
+            self.value += 1
 
     def pause_timer(self):
         self.timer.stop()

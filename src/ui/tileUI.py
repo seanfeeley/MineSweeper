@@ -4,6 +4,7 @@ from PySide2.QtCore import (QSize, Qt)
 from PySide2.QtGui import (QIcon, QMouseEvent)
 import src.model.GameStates as states
 import src.model.GameStateController as gsc
+import src.model.ResourceLoader as ResourceLoader
 import random
 
 
@@ -64,7 +65,7 @@ class TileButton(QPushButton):
         self.setEnabled(False)
         if (self.true_state == states.MINE
            and self.state != states.DETONATED):
-            self.show_mine()
+            self.set_state(states.MINE)
 
     def game_won(self):
         self.setEnabled(False)
@@ -83,17 +84,17 @@ class TileButton(QPushButton):
 
     def show_mine(self):
         self.setObjectName("Mine")
-        self.setIcon(QIcon('images/mine.png'))
+        self.setIcon(QIcon(ResourceLoader.resource_path('images/mine.png')))
         self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_detonated(self):
         self.setObjectName("Mine")
-        self.setIcon(QIcon('images/detonatedMine.png'))
+        self.setIcon(QIcon(ResourceLoader.resource_path('images/detonatedMine.png')))
         self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_flagged(self):
         self.setObjectName("Flagged")
-        self.setIcon(QIcon('images/flag.png'))
+        self.setIcon(QIcon(ResourceLoader.resource_path('images/flag.png')))
         self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_hidden(self):
@@ -136,9 +137,9 @@ class TileButton(QPushButton):
         if self.state != states.FLAGGED:
             if self.true_state == states.MINE:
                 self.set_state(states.DETONATED)
-            elif self.true_state == states.BLANK:
-                self.game_state.reveal_blanks.emit(self.row, self.column)
             else:
+                if self.true_state == states.BLANK:
+                    self.game_state.reveal_blanks.emit(self.row, self.column)
                 self.set_state(self.true_state)
 
         self.game_state.check_for_game_won.emit()

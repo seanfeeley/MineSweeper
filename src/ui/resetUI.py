@@ -3,6 +3,7 @@ from PySide2.QtWidgets import (QPushButton, QVBoxLayout)
 from PySide2.QtGui import (QIcon)
 from PySide2.QtCore import (QSize)
 import src.model.GameStates as states
+import src.model.ResourceLoader as ResourceLoader
 import src.model.GameStateController as gsc
 
 
@@ -28,6 +29,7 @@ class ResetButton(QPushButton):
         self.set_state(states.LOST)
 
     def game_won(self):
+        self.game_state.game_over = True
         self.set_state(states.WON)
 
     def game_reset(self):
@@ -35,13 +37,16 @@ class ResetButton(QPushButton):
         self.set_state(states.NORMAL)
 
     def game_wait(self):
+        self.game_state.game_over = False
         self.set_state(states.WAIT)
 
     def game_not_waiting(self):
+        self.game_state.game_over = False
         if self.state == states.WAIT:
             self.set_state(states.NORMAL)
 
     def game_normal(self):
+        self.game_state.game_over = False
         self.set_state(states.NORMAL)
 
     def set_state(self, state):
@@ -53,7 +58,7 @@ class ResetButton(QPushButton):
         self.set_state(states.NORMAL)
 
     def set_icon(self):
-        self.setIcon(QIcon('images/%s.png' % self.state))
+        self.setIcon(QIcon( ResourceLoader.resource_path('images/%s.png' % self.state)))
         self.setIconSize(QSize(50, 50))
 
     def refresh_stylesheet(self):
