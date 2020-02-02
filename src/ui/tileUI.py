@@ -65,7 +65,7 @@ class TileButton(QPushButton):
         self.setEnabled(False)
         if (self.true_state == states.MINE
            and self.state != states.DETONATED):
-            self.show_mine()
+            self.set_state(states.MINE)
 
     def game_won(self):
         self.setEnabled(False)
@@ -137,9 +137,9 @@ class TileButton(QPushButton):
         if self.state != states.FLAGGED:
             if self.true_state == states.MINE:
                 self.set_state(states.DETONATED)
-            elif self.true_state == states.BLANK:
-                self.game_state.reveal_blanks.emit(self.row, self.column)
             else:
+                if self.true_state == states.BLANK:
+                    self.game_state.reveal_blanks.emit(self.row, self.column)
                 self.set_state(self.true_state)
 
         self.game_state.check_for_game_won.emit()

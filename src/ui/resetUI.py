@@ -29,6 +29,7 @@ class ResetButton(QPushButton):
         self.set_state(states.LOST)
 
     def game_won(self):
+        self.game_state.game_over = True
         self.set_state(states.WON)
 
     def game_reset(self):
@@ -36,13 +37,16 @@ class ResetButton(QPushButton):
         self.set_state(states.NORMAL)
 
     def game_wait(self):
+        self.game_state.game_over = False
         self.set_state(states.WAIT)
 
     def game_not_waiting(self):
+        self.game_state.game_over = False
         if self.state == states.WAIT:
             self.set_state(states.NORMAL)
 
     def game_normal(self):
+        self.game_state.game_over = False
         self.set_state(states.NORMAL)
 
     def set_state(self, state):

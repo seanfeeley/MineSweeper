@@ -34,7 +34,6 @@ class TimerFrame(NumberDisplay):
         else:
             self.value += 1
 
-
     def pause_timer(self):
         self.timer.stop()
 
