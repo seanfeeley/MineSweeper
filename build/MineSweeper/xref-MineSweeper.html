@@ -277,6 +277,17 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="'src.ui.MainPanelUI'"></a>
+  <a target="code" href="" type="text/plain"><tt>'src.ui.MainPanelUI'</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#src.app">src.app</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="PySide2"></a>
   <a target="code" href="/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/PySide2/__init__.py" type="text/plain"><tt>PySide2</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
@@ -315,10 +326,6 @@ imported by:
  &#8226;   <a href="#PySide2.QtGui">PySide2.QtGui</a>
  &#8226;   <a href="#PySide2.QtNetwork">PySide2.QtNetwork</a>
  &#8226;   <a href="#PySide2.QtWidgets">PySide2.QtWidgets</a>
- &#8226;   <a href="#src.model.GameStateController">src.model.GameStateController</a>
- &#8226;   <a href="#src.ui.resetUI">src.ui.resetUI</a>
- &#8226;   <a href="#src.ui.tileUI">src.ui.tileUI</a>
- &#8226;   <a href="#src.ui.timerUI">src.ui.timerUI</a>
 
   </div>
 
@@ -337,8 +344,6 @@ imports:
 imported by:
     <a href="#PySide2.QtGui">PySide2.QtGui</a>
  &#8226;   <a href="#PySide2.QtWidgets">PySide2.QtWidgets</a>
- &#8226;   <a href="#src.ui.resetUI">src.ui.resetUI</a>
- &#8226;   <a href="#src.ui.tileUI">src.ui.tileUI</a>
 
   </div>
 
@@ -377,11 +382,6 @@ imported by:
     <a href="#MineSweeper.py">MineSweeper.py</a>
  &#8226;   <a href="#PySide2.QtWidgets">PySide2.QtWidgets</a>
  &#8226;   <a href="#src.app">src.app</a>
- &#8226;   <a href="#src.ui.NumberDisplayUI">src.ui.NumberDisplayUI</a>
- &#8226;   <a href="#src.ui.gridUI">src.ui.gridUI</a>
- &#8226;   <a href="#src.ui.mainPanelUI">src.ui.mainPanelUI</a>
- &#8226;   <a href="#src.ui.resetUI">src.ui.resetUI</a>
- &#8226;   <a href="#src.ui.tileUI">src.ui.tileUI</a>
 
   </div>
 
@@ -9927,9 +9927,6 @@ imported by:
     <a href="#email.generator">email.generator</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#secrets">secrets</a>
- &#8226;   <a href="#src.model.MineFieldFunctions">src.model.MineFieldFunctions</a>
- &#8226;   <a href="#src.ui.gridUI">src.ui.gridUI</a>
- &#8226;   <a href="#src.ui.tileUI">src.ui.tileUI</a>
  &#8226;   <a href="#tempfile">tempfile</a>
 
   </div>
@@ -10417,9 +10414,9 @@ imported by:
   <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/app.py" type="text/plain"><tt>src.app</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#PySide2.QtWidgets">PySide2.QtWidgets</a>
+    <a href="#'src.ui.MainPanelUI'">'src.ui.MainPanelUI'</a>
+ &#8226;   <a href="#PySide2.QtWidgets">PySide2.QtWidgets</a>
  &#8226;   <a href="#src">src</a>
- &#8226;   <a href="#src.ui.mainPanelUI">src.ui.mainPanelUI</a>
  &#8226;   <a href="#sys">sys</a>
 
   </div>
@@ -10441,68 +10438,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#src.model.GameStateController">src.model.GameStateController</a>
- &#8226;   <a href="#src.model.GameStates">src.model.GameStates</a>
- &#8226;   <a href="#src.model.MineFieldFunctions">src.model.MineFieldFunctions</a>
- &#8226;   <a href="#src.model.ResourceLoader">src.model.ResourceLoader</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.model.GameStateController"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/model/GameStateController.py" type="text/plain"><tt>src.model.GameStateController</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#PySide2.QtCore">PySide2.QtCore</a>
- &#8226;   <a href="#src.model">src.model</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.ui.gridUI">src.ui.gridUI</a>
- &#8226;   <a href="#src.ui.resetUI">src.ui.resetUI</a>
- &#8226;   <a href="#src.ui.scoreUI">src.ui.scoreUI</a>
- &#8226;   <a href="#src.ui.tileUI">src.ui.tileUI</a>
- &#8226;   <a href="#src.ui.timerUI">src.ui.timerUI</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.model.GameStates"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/model/GameStates.py" type="text/plain"><tt>src.model.GameStates</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#src.model">src.model</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.model.MineFieldFunctions">src.model.MineFieldFunctions</a>
- &#8226;   <a href="#src.ui.gridUI">src.ui.gridUI</a>
- &#8226;   <a href="#src.ui.resetUI">src.ui.resetUI</a>
- &#8226;   <a href="#src.ui.tileUI">src.ui.tileUI</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.model.MineFieldFunctions"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/model/MineFieldFunctions.py" type="text/plain"><tt>src.model.MineFieldFunctions</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#random">random</a>
- &#8226;   <a href="#src.model">src.model</a>
- &#8226;   <a href="#src.model.GameStates">src.model.GameStates</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.ui.gridUI">src.ui.gridUI</a>
+    <a href="#src.model.ResourceLoader">src.model.ResourceLoader</a>
 
   </div>
 
@@ -10521,180 +10457,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#MineSweeper.py">MineSweeper.py</a>
- &#8226;   <a href="#src.ui.resetUI">src.ui.resetUI</a>
- &#8226;   <a href="#src.ui.tileUI">src.ui.tileUI</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.ui"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/ui/__init__.py" type="text/plain"><tt>src.ui</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#src">src</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.ui.NumberDisplayUI">src.ui.NumberDisplayUI</a>
- &#8226;   <a href="#src.ui.gridUI">src.ui.gridUI</a>
- &#8226;   <a href="#src.ui.mainPanelUI">src.ui.mainPanelUI</a>
- &#8226;   <a href="#src.ui.resetUI">src.ui.resetUI</a>
- &#8226;   <a href="#src.ui.scoreUI">src.ui.scoreUI</a>
- &#8226;   <a href="#src.ui.tileUI">src.ui.tileUI</a>
- &#8226;   <a href="#src.ui.timerUI">src.ui.timerUI</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.ui.NumberDisplayUI"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/ui/NumberDisplayUI.py" type="text/plain"><tt>src.ui.NumberDisplayUI</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#PySide2.QtWidgets">PySide2.QtWidgets</a>
- &#8226;   <a href="#src.ui">src.ui</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.ui.scoreUI">src.ui.scoreUI</a>
- &#8226;   <a href="#src.ui.timerUI">src.ui.timerUI</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.ui.gridUI"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/ui/gridUI.py" type="text/plain"><tt>src.ui.gridUI</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#PySide2.QtWidgets">PySide2.QtWidgets</a>
- &#8226;   <a href="#random">random</a>
- &#8226;   <a href="#src.model.GameStateController">src.model.GameStateController</a>
- &#8226;   <a href="#src.model.GameStates">src.model.GameStates</a>
- &#8226;   <a href="#src.model.MineFieldFunctions">src.model.MineFieldFunctions</a>
- &#8226;   <a href="#src.ui">src.ui</a>
- &#8226;   <a href="#src.ui.tileUI">src.ui.tileUI</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.ui.mainPanelUI">src.ui.mainPanelUI</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.ui.mainPanelUI"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/ui/mainPanelUI.py" type="text/plain"><tt>src.ui.mainPanelUI</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#PySide2.QtWidgets">PySide2.QtWidgets</a>
- &#8226;   <a href="#src.ui">src.ui</a>
- &#8226;   <a href="#src.ui.gridUI">src.ui.gridUI</a>
- &#8226;   <a href="#src.ui.resetUI">src.ui.resetUI</a>
- &#8226;   <a href="#src.ui.scoreUI">src.ui.scoreUI</a>
- &#8226;   <a href="#src.ui.timerUI">src.ui.timerUI</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.app">src.app</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.ui.resetUI"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/ui/resetUI.py" type="text/plain"><tt>src.ui.resetUI</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#PySide2.QtCore">PySide2.QtCore</a>
- &#8226;   <a href="#PySide2.QtGui">PySide2.QtGui</a>
- &#8226;   <a href="#PySide2.QtWidgets">PySide2.QtWidgets</a>
- &#8226;   <a href="#src.model.GameStateController">src.model.GameStateController</a>
- &#8226;   <a href="#src.model.GameStates">src.model.GameStates</a>
- &#8226;   <a href="#src.model.ResourceLoader">src.model.ResourceLoader</a>
- &#8226;   <a href="#src.ui">src.ui</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.ui.mainPanelUI">src.ui.mainPanelUI</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.ui.scoreUI"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/ui/scoreUI.py" type="text/plain"><tt>src.ui.scoreUI</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#src.model.GameStateController">src.model.GameStateController</a>
- &#8226;   <a href="#src.ui">src.ui</a>
- &#8226;   <a href="#src.ui.NumberDisplayUI">src.ui.NumberDisplayUI</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.ui.mainPanelUI">src.ui.mainPanelUI</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.ui.tileUI"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/ui/tileUI.py" type="text/plain"><tt>src.ui.tileUI</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#PySide2.QtCore">PySide2.QtCore</a>
- &#8226;   <a href="#PySide2.QtGui">PySide2.QtGui</a>
- &#8226;   <a href="#PySide2.QtWidgets">PySide2.QtWidgets</a>
- &#8226;   <a href="#random">random</a>
- &#8226;   <a href="#src.model.GameStateController">src.model.GameStateController</a>
- &#8226;   <a href="#src.model.GameStates">src.model.GameStates</a>
- &#8226;   <a href="#src.model.ResourceLoader">src.model.ResourceLoader</a>
- &#8226;   <a href="#src.ui">src.ui</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.ui.gridUI">src.ui.gridUI</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="src.ui.timerUI"></a>
-  <a target="code" href="/Users/seanfeeley/Projects/MineSweeper/src/ui/timerUI.py" type="text/plain"><tt>src.ui.timerUI</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#PySide2.QtCore">PySide2.QtCore</a>
- &#8226;   <a href="#src.model.GameStateController">src.model.GameStateController</a>
- &#8226;   <a href="#src.ui">src.ui</a>
- &#8226;   <a href="#src.ui.NumberDisplayUI">src.ui.NumberDisplayUI</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#src.ui.mainPanelUI">src.ui.mainPanelUI</a>
 
   </div>
 
@@ -11061,13 +10823,6 @@ imported by:
  &#8226;   <a href="#socketserver">socketserver</a>
  &#8226;   <a href="#src.app">src.app</a>
  &#8226;   <a href="#src.model.ResourceLoader">src.model.ResourceLoader</a>
- &#8226;   <a href="#src.ui.NumberDisplayUI">src.ui.NumberDisplayUI</a>
- &#8226;   <a href="#src.ui.gridUI">src.ui.gridUI</a>
- &#8226;   <a href="#src.ui.mainPanelUI">src.ui.mainPanelUI</a>
- &#8226;   <a href="#src.ui.resetUI">src.ui.resetUI</a>
- &#8226;   <a href="#src.ui.scoreUI">src.ui.scoreUI</a>
- &#8226;   <a href="#src.ui.tileUI">src.ui.tileUI</a>
- &#8226;   <a href="#src.ui.timerUI">src.ui.timerUI</a>
  &#8226;   <a href="#sre_compile">sre_compile</a>
  &#8226;   <a href="#ssl">ssl</a>
  &#8226;   <a href="#subprocess">subprocess</a>
