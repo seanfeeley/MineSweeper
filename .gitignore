@@ -4,3 +4,5 @@ build/
 dist/
 build.sh
 .DS_Store
+build.sh
+*.spec
