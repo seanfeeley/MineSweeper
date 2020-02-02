@@ -32,9 +32,9 @@ OR you can default file here: **settings/defaults.json**
 {"rows":9,"columns":9,"mines":10}
 ```
 
-Rows must be between 3 and 20 inclusive.
-Columns must be between 8 and 80 inclusive.
-Mines must be below 300 or less than rows * columns.
+* Rows must be between 3 and 20 inclusive.
+* Columns must be between 8 and 80 inclusive.
+* Mines must be below 300 or less than rows * columns.
 
 ## Running the tests
 
