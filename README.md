@@ -1,6 +1,6 @@
-# Minesweeper
+# Mine Sweeper
 
-Simple Minesweeper game
+Simple Mine Sweeper game
 
 ## Getting Started
 
