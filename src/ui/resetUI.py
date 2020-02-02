@@ -3,6 +3,7 @@ from PySide2.QtWidgets import (QPushButton, QVBoxLayout)
 from PySide2.QtGui import (QIcon)
 from PySide2.QtCore import (QSize)
 import src.model.GameStates as states
+import src.model.ResourceLoader as ResourceLoader
 import src.model.GameStateController as gsc
 
 
@@ -53,7 +54,7 @@ class ResetButton(QPushButton):
         self.set_state(states.NORMAL)
 
     def set_icon(self):
-        self.setIcon(QIcon('images/%s.png' % self.state))
+        self.setIcon(QIcon( ResourceLoader.resource_path('images/%s.png' % self.state)))
         self.setIconSize(QSize(50, 50))
 
     def refresh_stylesheet(self):

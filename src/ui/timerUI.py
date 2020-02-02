@@ -21,7 +21,7 @@ class TimerFrame(NumberDisplay):
         self.timer.timeout.connect(self.one_second_passed)
 
     def restart_timer(self):
-        self.value = 990
+        self.value = 0
         self.timer.start(self.ONE_SECOND)
 
     def one_second_passed(self):

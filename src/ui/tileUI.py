@@ -4,6 +4,7 @@ from PySide2.QtCore import (QSize, Qt)
 from PySide2.QtGui import (QIcon, QMouseEvent)
 import src.model.GameStates as states
 import src.model.GameStateController as gsc
+import src.model.ResourceLoader as ResourceLoader
 import random
 
 
@@ -83,17 +84,17 @@ class TileButton(QPushButton):
 
     def show_mine(self):
         self.setObjectName("Mine")
-        self.setIcon(QIcon('images/mine.png'))
+        self.setIcon(QIcon(ResourceLoader.resource_path('images/mine.png')))
         self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_detonated(self):
         self.setObjectName("Mine")
-        self.setIcon(QIcon('images/detonatedMine.png'))
+        self.setIcon(QIcon(ResourceLoader.resource_path('images/detonatedMine.png')))
         self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_flagged(self):
         self.setObjectName("Flagged")
-        self.setIcon(QIcon('images/flag.png'))
+        self.setIcon(QIcon(ResourceLoader.resource_path('images/flag.png')))
         self.setIconSize(QSize(self.iconWidth, self.iconWidth))
 
     def show_hidden(self):
