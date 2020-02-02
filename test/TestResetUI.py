@@ -1,6 +1,6 @@
 import unittest
 from PySide2 import (QtCore, QtCore, QtWidgets, QtTest)
-from src.ui.resetUI import ResetButton
+from src.ui.ResetUI import ResetButton
 import src.model.GameStateController as gsc
 import src.model.GameStates as states
 import UsesQApplication

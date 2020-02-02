@@ -1,7 +1,6 @@
-'''Tests for TimerUI'''
 import unittest
 from PySide2 import QtCore, QtCore, QtWidgets, QtTest
-from src.ui.timerUI import TimerFrame
+from src.ui.TimerUI import TimerFrame
 import src.model.GameStateController as gsc
 import UsesQApplication
 import time

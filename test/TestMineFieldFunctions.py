@@ -1,6 +1,5 @@
 import unittest
 from PySide2 import (QtCore, QtCore, QtWidgets, QtTest)
-from src.ui.resetUI import ResetButton
 import src.model.GameStateController as gsc
 import src.model.MineFieldFunctions as mff
 import src.model.GameStates as states

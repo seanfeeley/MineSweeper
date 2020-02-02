@@ -1,6 +1,6 @@
 import sys
 from PySide2.QtWidgets import QWidget, QHBoxLayout
-import src.ui.mainPanelUI as mainPanelUI
+import src.ui.MainPanelUI as mainPanelUI
 
 
 class Main(QWidget):
