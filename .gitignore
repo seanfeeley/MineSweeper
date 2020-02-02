@@ -1,6 +1,6 @@
-*__pycache__
+__pycache__/
 *.pyc
-*build/
-*dist/
+build/
+dist/
 build.sh
 .DS_Store
