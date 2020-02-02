@@ -1,7 +1,7 @@
 
 import unittest
 from PySide2 import QtCore, QtCore, QtWidgets, QtTest
-from src.ui.tileUI import TileButton
+from src.ui.TileUI import TileButton
 import src.model.GameStateController as gsc
 import src.model.GameStates as states
 import UsesQApplication

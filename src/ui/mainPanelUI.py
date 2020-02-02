@@ -1,10 +1,10 @@
 import sys
 from PySide2.QtWidgets import QFrame, QHBoxLayout, QVBoxLayout
 from PySide2.QtWidgets import (QPushButton, QSpacerItem, QSizePolicy)
-from src.ui.scoreUI import ScoreFrame
-import src.ui.resetUI as resetUI
-from src.ui.timerUI import TimerFrame
-from src.ui.gridUI import GridFrame
+from src.ui.ScoreUI import ScoreFrame
+import src.ui.ResetUI as resetUI
+from src.ui.TimerUI import TimerFrame
+from src.ui.GridUI import GridFrame
 
 
 class MainPanel(QFrame):

@@ -1,6 +1,6 @@
 import unittest
 from PySide2 import QtCore, QtCore, QtWidgets, QtTest
-from src.ui.scoreUI import ScoreFrame
+from src.ui.ScoreUI import ScoreFrame
 import src.model.GameStateController as gsc
 import UsesQApplication
 import time

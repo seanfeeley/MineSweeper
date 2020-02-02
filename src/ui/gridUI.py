@@ -2,7 +2,7 @@ import sys
 from PySide2.QtWidgets import (QFrame, QHBoxLayout, QVBoxLayout, QPushButton)
 import src.model.GameStates as states
 import src.model.MineFieldFunctions as mff
-import src.ui.tileUI as tileUI
+import src.ui.TileUI as tileUI
 import random
 import src.model.GameStateController as gsc
 
@@ -18,10 +18,10 @@ class GridFrame(QFrame):
         self.game_state.check_for_game_won.connect(self.check_for_win_state)
 
         self.tiles = []
-        self.load_minefeild()
+        self.load_minefield()
         self.load_layout()
 
-    def load_minefeild(self):
+    def load_minefield(self):
         self.minefield = mff.generate_minefield(self.settings['rows'],
                                                 self.settings['columns'],
                                                 self.settings['mines'])
@@ -59,7 +59,7 @@ class GridFrame(QFrame):
         return tile
 
     def reset(self):
-        self.load_minefeild()
+        self.load_minefield()
         self.reset_buttons()
 
     def reset_buttons(self):
