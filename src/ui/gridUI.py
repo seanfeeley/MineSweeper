@@ -84,8 +84,8 @@ class GridFrame(QFrame):
 
     def reveal_blanks(self, row_index, column_index):
         blank_mines = mff.get_blank_area([[row_index,
-                                               column_index]],
-                                               self.minefield)
+                                           column_index]],
+                                         self.minefield)
         for blank_mine in blank_mines:
             row_index = blank_mine[0]
             column_index = blank_mine[1]
